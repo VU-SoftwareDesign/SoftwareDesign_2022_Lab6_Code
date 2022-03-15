@@ -46,14 +46,18 @@ public class Status {
     }
 
     public Status setStatus(Progress progress) {
-        for (StatusObserver observer : observers) {
-            observer.update(currentStatus, progress);
-        }
+        notifyObservers(progress);
 
         return new Status(progress);
     }
 
     public void addObserver(StatusObserver observer) {
         observers.add(observer);
+    }
+
+    private void notifyObservers(Progress progress) {
+        for (StatusObserver observer : observers) {
+            observer.update(currentStatus, progress);
+        }
     }
 }
