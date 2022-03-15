@@ -5,7 +5,6 @@ public class Status {
     //Enumeration of all the status --> DONE
     //Changes made to task as a result. Check there for relevant changes
     private final Progress currentStatus;
-
     //To change status of Progress, you can only choose so from the enumeration below.
     enum Progress {
         READY {

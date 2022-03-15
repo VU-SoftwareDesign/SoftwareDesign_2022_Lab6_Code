@@ -84,4 +84,10 @@ public class Project {
     public UUID getUUID () {
         return this.uuid;
     }
+
+    public void accept(TaskVisitor visitor) {
+        for (TaskList taskList : taskLists) {
+            taskList.accept(visitor);
+        }
+    }
 }

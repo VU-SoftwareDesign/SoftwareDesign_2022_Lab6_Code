@@ -61,4 +61,10 @@ public class TaskList implements Iterable<Task> {
     public Iterator<Task> iterator() {
         return this.tasks.values().iterator();
     }
+
+    public void accept(TaskVisitor visitor) {
+        for (Task task : this) {
+            visitor.visit(task);
+        }
+    }
 }
