@@ -1,10 +1,16 @@
 package softwaredesign.projectManager;
 
 
+import java.util.HashSet;
+import java.util.Set;
+
 public class Status {
     //Enumeration of all the status --> DONE
     //Changes made to task as a result. Check there for relevant changes
     private final Progress currentStatus;
+
+    private final Set<StatusObserver> observers = new HashSet<>();
+
     //To change status of Progress, you can only choose so from the enumeration below.
     enum Progress {
         READY {
@@ -40,6 +46,14 @@ public class Status {
     }
 
     public Status setStatus(Progress progress) {
+        for (StatusObserver observer : observers) {
+            observer.update(currentStatus, progress);
+        }
+
         return new Status(progress);
+    }
+
+    public void addObserver(StatusObserver observer) {
+        observers.add(observer);
     }
 }
