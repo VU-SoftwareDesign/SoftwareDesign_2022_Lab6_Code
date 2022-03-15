@@ -39,4 +39,8 @@ public class Status {
     public void printStatus () {
         System.out.println(this.currentStatus);
     }
+
+    public Status setStatus(Progress progress) {
+        return new Status(progress);
+    }
 }

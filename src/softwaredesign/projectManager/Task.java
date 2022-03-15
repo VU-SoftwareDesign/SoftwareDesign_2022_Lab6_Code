@@ -67,7 +67,7 @@ public class Task {
     }
 
     public Task setStatus (Status.Progress newStatus) {
-        return new Task (this.name, this.estimatedTime, this.assignedEmployees, new Status(newStatus), this.requiredSkills);
+        return new Task (this.name, this.estimatedTime, this.assignedEmployees, this.status.setStatus(newStatus), this.requiredSkills);
     }
 
     public Status getStatus () {
