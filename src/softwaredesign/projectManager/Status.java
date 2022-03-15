@@ -45,6 +45,10 @@ public class Status {
         System.out.println(this.currentStatus);
     }
 
+    public String getStatus() {
+        return this.currentStatus.toString();
+    }
+
     public Status setStatus(Progress progress) {
         notifyObservers(progress);
 
